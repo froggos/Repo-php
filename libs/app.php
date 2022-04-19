@@ -52,7 +52,7 @@
                     }
                     else
                     {
-                        $controller = new Error();
+                        $controller = new Errors();
                         $controller->render();
                     }
                 }
@@ -63,7 +63,7 @@
             }
             else
             {
-                $controller = new Error();
+                $controller = new Errors();
                 $controller->render();
             }
         }

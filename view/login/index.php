@@ -6,7 +6,16 @@
     </head>
     <body>
         <h1>
-            Amigos y amigas, este es el login.
+            Este es el login.
+            <p>
+
+                <?php
+                
+                    $this->showMessagges();
+                
+                ?>
+
+            </p>
         </h1>
     </body>
 </html>

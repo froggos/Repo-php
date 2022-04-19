@@ -1,19 +1,9 @@
-[14-Apr-2022 22:56:08 Europe/Berlin] PHP Fatal error:  Cannot declare class Error, because the name is already in use in C:\xampp\htdocs\Control-Stock-TS\controller\error.php on line 5
-[14-Apr-2022 22:56:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Controller' not found in C:\xampp\htdocs\Control-Stock-TS\controller\error.php:3
-Stack trace:
-#0 C:\xampp\htdocs\Control-Stock-TS\libs\app.php(3): require_once()
-#1 C:\xampp\htdocs\Control-Stock-TS\index.php(10): require_once('C:\\xampp\\htdocs...')
-#2 {main}
-  thrown in C:\xampp\htdocs\Control-Stock-TS\controller\error.php on line 3
-[14-Apr-2022 22:58:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Controller' not found in C:\xampp\htdocs\Control-Stock-TS\controller\error.php:3
-Stack trace:
-#0 C:\xampp\htdocs\Control-Stock-TS\libs\app.php(3): require_once()
-#1 C:\xampp\htdocs\Control-Stock-TS\index.php(10): require_once('C:\\xampp\\htdocs...')
-#2 {main}
-  thrown in C:\xampp\htdocs\Control-Stock-TS\controller\error.php on line 3
-[14-Apr-2022 22:58:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Controller' not found in C:\xampp\htdocs\Control-Stock-TS\controller\error.php:3
-Stack trace:
-#0 C:\xampp\htdocs\Control-Stock-TS\libs\app.php(3): require_once()
-#1 C:\xampp\htdocs\Control-Stock-TS\index.php(10): require_once('C:\\xampp\\htdocs...')
-#2 {main}
-  thrown in C:\xampp\htdocs\Control-Stock-TS\controller\error.php on line 3
+[19-Apr-2022 21:01:23 Europe/Berlin] App::contruct-> No existe un controlador especificado
+[19-Apr-2022 21:01:23 Europe/Berlin] Login::construct-> Inicio de login.
+[19-Apr-2022 21:01:23 Europe/Berlin] Login::render-> Carga de index de login.
+[19-Apr-2022 21:05:08 Europe/Berlin] App::contruct-> No existe un controlador especificado
+[19-Apr-2022 21:05:08 Europe/Berlin] Login::construct-> Inicio de login.
+[19-Apr-2022 21:05:08 Europe/Berlin] Login::render-> Carga de index de login.
+[19-Apr-2022 21:21:38 Europe/Berlin] App::contruct-> No existe un controlador especificado
+[19-Apr-2022 21:21:38 Europe/Berlin] Login::construct-> Inicio de login.
+[19-Apr-2022 21:21:38 Europe/Berlin] Login::render-> Carga de index de login.

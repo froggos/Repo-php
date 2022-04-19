@@ -1,32 +1,40 @@
 <?php
 
-    require_once 'config/Database.php';
-
     class Connection
     {
-        private $connection = null;
+        private $host;
+        private $db;
+        private $user;
+        private $password;
+        private $charset;
 
-        public function Connect()
+        public function __construct()
+        {
+            $this->host     = constant('DB_HOST');
+            $this->db       = constant('DB_NAME');
+            $this->user     = constant('DB_USER');
+            $this->password = constant('DB_PASS');
+            $this->charset  = constant('DB_CHAR');
+        }
+
+        function Connect()
         {
             try
             {
-                $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-                $this->connection->set_charset('utf-8');
-            }
-            catch(Exception $e)
-            {
-                echo $e->getMessage();
-            }
-            return $this->connection;
-        }
+                $connection = 'mysqli:host='.$this->host.';dbname='.$this->db.';charset='.$this->charset;
+                $options = [
+                    PDO::ATTR_ERRMODE           => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_EMULATE_PREPARES  => false,
+                ];
 
-        public function Disconnect()
-        {
-            if($this->connection != null)
-            {
-                mysqli_close($this->connection);
+                $pdo = new PDO($connection, $this->user, $this->password, $options);
+                error_log('Conexión exitosa.');
+                return $pdo;
             }
-            return $this->connection;
+            catch(PDOException $e)
+            {
+                error_log('Error de conexión: '.$e->getMessage());
+            }
         }
     }
 
