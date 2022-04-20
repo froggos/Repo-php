@@ -15,11 +15,11 @@
         }
 
         public function setId($id){$this->id = $id;}
-        public function setUser($user){$this->user = $user;}
+        public function setUser($username){$this->username = $username;}
         public function setPassword($password){$this->password = $this->getHashedPassword($password);}
 
         public function getId(){return $this->id;}
-        public function getUser(){return $this->user;}
+        public function getUser(){return $this->username;}
         public function getPassword(){return $this->password;}
 
         public function save()
@@ -106,8 +106,64 @@
             }
         }
 
-        public function update(){}
-        public function from($array){}
+        public function update()
+        {
+            try
+            {
+                $query = $this->query('UPDATE USER SET USER.NAME = ?, USER.PASSWORD = ? FROM USER WHERE USER.ID = ?');
+                $query->bindParam(1, $this->getUser());
+                $query->bindParam(2, $this->getPassword());
+                $query->bindParam(3, $this->getId());
+                $query->execute();
+
+                return $this;
+            }
+            catch(PDOException $e)
+            {
+                error_log('UserModel::delete-> PDOException: '.$e);
+                return false;
+            }
+        }
+
+        public function from($array)
+        {
+            $this->id       = $array['id'];
+            $this->username = $array['username'];
+            $this->password = $array['password'];
+        }
+
+        public function exist($username)
+        {
+            try
+            {
+                $query = $this->prepare('SELECT USER.NAME FROM USER WHERE USER.NAME = ?');
+                $query->bindParam(1, $username);
+                $query->execute();
+                if($query->rowCount() > 0)
+                {
+                    return true;
+                }
+            }
+            catch(PDOException $e)
+            {
+                error_log('UserModel::exist-> PDOException: '.$e);
+                return false;
+            }
+        }
+
+        public function comparePasswords($password, $userid)
+        {
+            try
+            {
+                $user = $this->get($userid);
+                return password_verify($password, $user->getPassword());
+            }
+            catch(PDOException $e)
+            {
+                error_log('UserModel::comparePassword-> PDOException: '.$e);
+                return false;
+            }
+        }
     }
 
 ?>

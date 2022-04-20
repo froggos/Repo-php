@@ -1,9 +1,0 @@
-[19-Apr-2022 21:01:23 Europe/Berlin] App::contruct-> No existe un controlador especificado
-[19-Apr-2022 21:01:23 Europe/Berlin] Login::construct-> Inicio de login.
-[19-Apr-2022 21:01:23 Europe/Berlin] Login::render-> Carga de index de login.
-[19-Apr-2022 21:05:08 Europe/Berlin] App::contruct-> No existe un controlador especificado
-[19-Apr-2022 21:05:08 Europe/Berlin] Login::construct-> Inicio de login.
-[19-Apr-2022 21:05:08 Europe/Berlin] Login::render-> Carga de index de login.
-[19-Apr-2022 21:21:38 Europe/Berlin] App::contruct-> No existe un controlador especificado
-[19-Apr-2022 21:21:38 Europe/Berlin] Login::construct-> Inicio de login.
-[19-Apr-2022 21:21:38 Europe/Berlin] Login::render-> Carga de index de login.
