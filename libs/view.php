@@ -54,7 +54,7 @@
             }
         }
 
-        public function showMessagges()
+        public function showMessages()
         {
             $this->showErrors();
             $this->showSuccess();

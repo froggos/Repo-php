@@ -5,6 +5,7 @@
         private $id;
         private $username;
         private $password;
+        private $role;
 
         public function __construct()
         {
@@ -12,23 +13,27 @@
             $this->id       = 0;
             $this->user     = '';
             $this->password = '';
+            $this->role     = 0;
         }
 
         public function setId($id){$this->id = $id;}
         public function setUser($username){$this->username = $username;}
         public function setPassword($password){$this->password = $this->getHashedPassword($password);}
+        public function setRole($role){$this->role = $role;}
 
         public function getId(){return $this->id;}
         public function getUser(){return $this->username;}
         public function getPassword(){return $this->password;}
+        public function getRole(){return $this->role;}
 
         public function save()
         {
             try
             {
-                $query = $this->prepare('INSERT INTO USER(USER.NAME, USER.PASSWORD) VALUES (?,?)');
+                $query = $this->prepare('INSERT INTO USER(USER.NAME, USER.PASSWORD, USER.ROLE) VALUES (?,?,?)');
                 $query->bindParam(1, $this->getUser());
                 $query->bindParam(2, $this->getPassword());
+                $query->bindParam(3, $this->getRole());
                 $query->execute();
                 return true;
             }
@@ -51,6 +56,7 @@
                     $user->setId($row['ID']);
                     $user->setUser($row['NAME']);
                     $user->setPassword($row['PASSWORD']);
+                    $user->setRole($row['ROLE']);
 
                     array_push($data, $user);
                 }
@@ -80,6 +86,7 @@
                 $this->setId($user['ID']);
                 $this->setUser($user['NAME']);
                 $this->setPassword($user['PASSWORD']);
+                $this->setRole($user['ROLE']);
                 
                 return $this;
             }

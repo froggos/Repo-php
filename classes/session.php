@@ -2,7 +2,7 @@
 
     class Session
     {
-        private $sessionName = 'user';
+        private $sessionName = '';
 
         public function __construct()
         {
@@ -28,7 +28,7 @@
             session_destroy();
         }
 
-        public function exist()
+        public function exists()
         {
             return isset($_SESSION[$this->sessionName]);
         }

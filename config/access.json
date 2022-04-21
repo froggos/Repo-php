@@ -21,10 +21,8 @@
             "role": "admin"
         }
     ],
-    "default-sites": [
-        {
-            "site": "login",
-            "role": "admin"
-        }
-    ]
+    "default-sites": {
+        "": "login",
+        "admin": "dashboard"
+    }
 }

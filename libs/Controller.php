@@ -18,6 +18,13 @@
             }
         }
 
+        /**
+         * 
+         * Recibe como parámetro un array.
+         * Recorre el array y convierte sus elementos a $param.
+         * Si el array no contiene ningún valor para POST entonces retorna falso.
+         * En caso contrario retorna verdadero.
+         */
         function existPOST($params)
         {
             foreach($params as $param)
@@ -54,6 +61,15 @@
             return $_GET[$name];
         }
 
+        /**
+         * Recibe dos parámetros, $route como la ruta a redireccionar y $messages como un array que contienen cada uno de los parámetros de GET.
+         * Se declara la variable $data como array, y la variable $params como string.
+         * Se recorre cada uno de los parámetros almacenados en $messages, separando sus claves($key) y valores($message).
+         * Se crea una cadena(string) usando la siguiente estructura: llave=valor, usando $key y $message. Esto se almacena $data.
+         * Ahora bien, después de todo esto, si la variable $params no está vacía, se le concatena al principio un ?.
+         * Se usa $route recibido por el método y se concatena con la variable $params dando como resultado, por ejemplo,
+         * la siguiente estructura: http://localhost/Control-Stock-TS/ruta?llave=valor. 
+         */
         function redirect($route, $messages)
         {
             $data = [];

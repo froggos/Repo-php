@@ -11,7 +11,7 @@
 
                 <?php
                 
-                    $this->showMessagges();
+                    $this->showMessages();
                 
                 ?>
 
